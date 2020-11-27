@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- 并发参考这个：https://www.cnblogs.com/znicy/p/6534893.html -->
+<!--套件，套件的name必须有值 -->
+<!--<suite name="suite" parallel="tests" thread-count="2" >  -->
+<suite name="suite" parallel="tests" thread-count="3">
+	<!--测试集/模块 ,name根据实际情况填写 -->
+	<test name="第一个测试集">
+		<parameter name="browserType" value="chrome"></parameter>
+		<!-- 测试类 -->
+		<classes>
+            <!-- 单个的测试类定义,这里的相对路径是相对项目的路径，例如-->         	
+			<class name="com.lemon.webauto.day01.ChromeDemo"></class>	
+			<class name="com.lemon.webauto.day01.ChromeDemo2"></class>	
+			<class name="com.lemon.webauto.day01.ChromeDemo3"></class>		
+			<class name="com.lemon.webauto.day01.ChromeDemo4"></class>    	    
+		</classes>
+	</test>
+    <test name="第二个测试集">
+		<parameter name="browserType" value="chrome"></parameter>
+		<classes>  
+			<class name="com.lemon.webauto.day01.M"></class>
+			<class name="com.lemon.webauto.day01.M2"></class>
+			<class name="com.lemon.webauto.day01.M3"></class>	
+		</classes>
+	</test>
+	<test name="第三个测试集">
+		<parameter name="browserType" value="chrome"></parameter>
+		<classes>  
+			<class name="com.lemon.webauto.day01.M4"></class> 
+			<class name="com.lemon.webauto.day01.M5"></class>
+			<class name="com.lemon.webauto.day01.M6"></class>
+		</classes>
+	</test>
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+	</listeners>
+</suite>
+
